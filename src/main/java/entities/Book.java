@@ -20,6 +20,26 @@ public class Book {
     @JoinColumn(name = "genre_id")
     private Genre genre;
 
+    @Column(name = "downloads")
+    private Integer downloads;
+
+    public Book(String name, Integer page, Author author, Genre genre, Integer downloads) {
+        this.name = name;
+        this.page = page;
+        this.author = author;
+        this.genre = genre;
+        this.downloads = downloads;
+    }
+
+    public Book(Integer id, String name, Integer page, Author author, Genre genre, Integer downloads) {
+        this.id = id;
+        this.name = name;
+        this.page = page;
+        this.author = author;
+        this.genre = genre;
+        this.downloads = downloads;
+    }
+
     public Book(Integer id, String name, Integer page, Author author, Genre genre) {
         this.id = id;
         this.name = name;
@@ -39,7 +59,16 @@ public class Book {
                 ", page=" + page +
                 ", author=" + author +
                 ", genre=" + genre +
-                '}'+"\n";
+                ", downloads=" + downloads +
+                '}';
+    }
+
+    public Integer getDownloads() {
+        return downloads;
+    }
+
+    public void setDownloads(Integer downloads) {
+        this.downloads = downloads;
     }
 
     public Integer getId() {
